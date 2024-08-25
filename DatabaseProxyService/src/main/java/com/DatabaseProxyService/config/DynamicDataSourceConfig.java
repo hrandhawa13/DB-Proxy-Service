@@ -1,6 +1,6 @@
 package com.databaseproxyservice.config;
 
-import com.example.properties.DatabaseProperties;
+import com.databaseproxyservice.properties.DatabaseProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
