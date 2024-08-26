@@ -3,13 +3,14 @@ package com.databaseproxyservice.properties;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
 @ConfigurationProperties(prefix = "databases")
 public class DatabaseProperties {
 
-    private Map<String, DataSourceProperties> db;
+    private Map<String, DataSourceProperties> db= new HashMap<>();
 
     public Map<String, DataSourceProperties> getDb() {
         return db;

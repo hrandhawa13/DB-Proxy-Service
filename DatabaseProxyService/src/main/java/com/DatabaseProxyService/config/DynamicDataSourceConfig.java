@@ -4,7 +4,7 @@ import com.databaseproxyservice.properties.DatabaseProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.apache.commons.dbcp2.BasicDataSource;
 
 import javax.sql.DataSource;
 import java.util.HashMap;
@@ -25,7 +25,7 @@ public class DynamicDataSourceConfig {
         Map<String, DataSource> dataSources = new HashMap<>();
 
         databaseProperties.getDb().forEach((key, props) -> {
-            DriverManagerDataSource dataSource = new DriverManagerDataSource();
+            BasicDataSource  dataSource = new BasicDataSource ();
             dataSource.setUrl(props.getUrl());
             dataSource.setUsername(props.getUsername());
             dataSource.setPassword(props.getPassword());
