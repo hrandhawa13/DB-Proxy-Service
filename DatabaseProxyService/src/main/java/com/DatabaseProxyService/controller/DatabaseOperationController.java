@@ -21,15 +21,23 @@ public class DatabaseOperationController {
     }
 
     @GetMapping("/readQuery")
-    public ResponseEntity<String> executeReadQuery(@RequestParam String sql, @RequestParam String tenant ) {
-
+    public ResponseEntity<String> executeReadQuery(@RequestParam String sql, @RequestParam String tenantId ) {
+        validate();
         StringBuilder result = new StringBuilder();
         try {
-            result = databaseClientService.executeReadQuery(sql, tenant);
+            result = databaseClientService.executeReadQuery(sql, tenantId);
         } catch (Exception e) {
             return ResponseEntity.status(500).body("Error executing query: " + e.getMessage());
         }
 
         return ResponseEntity.ok(result.toString());
+    }
+
+    private void validate() {
+        /*
+        * TODO
+        *  This method should validate each incoming request
+        * It should validate the tenantId and jwt token against cognito
+        * */
     }
 }

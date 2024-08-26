@@ -14,10 +14,12 @@ public class DatabaseClientService {
     public DatabaseClientService(ConnectionPoolService connectionPoolService) {
         this.connectionPoolService = connectionPoolService;
     }
-
+// TODO Log the sql, tenantId, Result for monitoring/logging
     public StringBuilder executeReadQuery(String sql, String tenantId){
         StringBuilder result = new StringBuilder();
-
+// TODO Extract the functionality of prepping and executing sql into 1 method
+// TODO Extract the functionality of parsing result into 1 method
+// TODO This method should return JSON instead of string builder
         try (Connection connection = connectionPoolService.getConnection(tenantId);
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
@@ -38,5 +40,9 @@ public class DatabaseClientService {
             return new StringBuilder("Error executing query: " + e.getMessage());
         }
         return result;
+    }
+
+    public void executeReadQueryForSingleResult(String sql, String tenantId){
+        //TODO This method should only return 1 row from Database
     }
 }

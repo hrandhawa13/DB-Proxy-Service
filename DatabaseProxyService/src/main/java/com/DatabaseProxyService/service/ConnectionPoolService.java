@@ -12,7 +12,7 @@ import java.util.Map;
 public class ConnectionPoolService {
 
     private final Map<String, DataSource> dataSources;
-
+// TODO There should be a cleanup method which is responsible to cleaning up, recreating connection pools at a scheduled time or something
     @Autowired
     public ConnectionPoolService(Map<String, DataSource> dataSources) {
         this.dataSources = dataSources;
