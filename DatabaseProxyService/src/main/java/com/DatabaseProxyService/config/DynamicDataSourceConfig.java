@@ -30,6 +30,10 @@ public class DynamicDataSourceConfig {
             dataSource.setUsername(props.getUsername());
             dataSource.setPassword(props.getPassword());
             dataSource.setDriverClassName(props.getDriverClassName());
+            dataSource.setInitialSize(props.getInitialSize());
+            dataSource.setMaxTotal(props.getMaxTotal());
+            dataSource.setMaxIdle(props.getMaxIdle());
+            dataSource.setMinIdle(props.getMinIdle());
 
             dataSources.put(key, dataSource);
         });

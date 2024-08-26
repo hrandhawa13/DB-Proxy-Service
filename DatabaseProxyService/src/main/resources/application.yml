@@ -5,8 +5,16 @@ spring:
       username: user1
       password: password1
       driver-class-name: oracle.jdbc.OracleDriver
+      initialSize: 1
+      maxTotal: 5
+      maxIdle: 1
+      minIdle: 1
     db2:
       url: jdbc:oracle:thin:@//localhost:5432/db2
       username: user2
       password: password2
       driver-class-name: oracle.jdbc.OracleDriver
+      initialSize: 1
+      maxTotal: 5
+      maxIdle: 1
+      minIdle: 1

@@ -25,6 +25,42 @@ public class DatabaseProperties {
         private String username;
         private String password;
         private String driverClassName;
+        private int initialSize;
+        private int maxTotal;
+        private int maxIdle;
+        private int minIdle;
+
+        public int getMaxTotal() {
+            return maxTotal;
+        }
+
+        public void setMaxTotal(int maxTotal) {
+            this.maxTotal = maxTotal;
+        }
+
+        public int getMaxIdle() {
+            return maxIdle;
+        }
+
+        public void setMaxIdle(int maxIdle) {
+            this.maxIdle = maxIdle;
+        }
+
+        public int getMinIdle() {
+            return minIdle;
+        }
+
+        public void setMinIdle(int minIdle) {
+            this.minIdle = minIdle;
+        }
+
+        public int getInitialSize() {
+            return initialSize;
+        }
+
+        public void setInitialSize(int initialSize) {
+            this.initialSize = initialSize;
+        }
 
         // Getters and Setters
         public String getUrl() {
