@@ -1,6 +1,7 @@
 package com.databaseproxyservice.config;
 
 import com.databaseproxyservice.properties.DatabaseProperties;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
@@ -23,7 +24,6 @@ public class DynamicDataSourceConfig {
     @Primary
     public Map<String, DataSource> dataSources() {
         Map<String, DataSource> dataSources = new HashMap<>();
-
         databaseProperties.getDb().forEach((key, props) -> {
             BasicDataSource  dataSource = new BasicDataSource ();
             dataSource.setUrl(props.getUrl());
@@ -37,7 +37,6 @@ public class DynamicDataSourceConfig {
 
             dataSources.put(key, dataSource);
         });
-
         return dataSources;
     }
 }

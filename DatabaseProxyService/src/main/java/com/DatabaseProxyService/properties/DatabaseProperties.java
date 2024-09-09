@@ -2,12 +2,13 @@ package com.databaseproxyservice.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
-@Configuration
-@ConfigurationProperties(prefix = "databases")
+@Component
+@ConfigurationProperties(prefix = "spring")
 public class DatabaseProperties {
 //currently these are being read from src/main/resources/application.yml
 //TODO eventually these will be read from aws secrets manager

@@ -23,7 +23,6 @@ public class DatabaseClientService {
         try (Connection connection = connectionPoolService.getConnection(tenantId);
              PreparedStatement statement = connection.prepareStatement(sql);
              ResultSet resultSet = statement.executeQuery()) {
-
             ResultSetMetaData metaData = resultSet.getMetaData();
             int columnCount = metaData.getColumnCount();
 
